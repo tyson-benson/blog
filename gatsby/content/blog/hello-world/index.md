@@ -24,7 +24,94 @@ Oh, and here's a great quote from this Wikipedia on
 You can also write code blocks here!
 
 ```js
-const saltyDuckEgg = "chinese preserved food product"
+import { merge } from "theme-ui"
+import { tailwind } from "@theme-ui/presets"
+import nightOwl from "@theme-ui/prism/presets/night-owl"
+
+const theme = merge(tailwind, {
+  initialColorModeName: `light`,
+  config: {
+    useCustomProperties: true,
+  },
+};
+```
+
+And something a little different:
+
+```bicep
+param publisherEmail string
+param publisherName string
+
+@allowed([
+  'Developer'
+  'Standard'
+  'Premium'
+])
+param sku string = 'Standard'
+
+param skuCount int = 1
+
+@secure()
+param mutualAuthenticationCertificate string
+
+param certificatePassword string
+param eventHubNamespaceConnectionString string
+
+@secure()
+param googleClientSecret string
+
+@secure()
+param openIdConnectClientSecret string
+
+param tenantPolicy string
+param apiPolicy string
+param operationPolicy string
+param productPolicy string
+param location string = resourceGroup().location
+
+var apiManagementServiceName = 'apiservice${uniqueString(resourceGroup().id)}'
+
+resource apiManagementService 'Microsoft.ApiManagement/service@2020-06-01-preview' = {
+  name: apiManagementServiceName
+  location: location
+  sku: {
+    name: sku
+    capacity: skuCount
+  }
+  properties: {
+    publisherName: publisherName
+    publisherEmail: publisherEmail
+  }
+}
+
+resource policy 'Microsoft.ApiManagement/service/policies@2020-06-01-preview' = {
+  name: '${apiManagementService.name}/policy'
+  properties: {
+    value: tenantPolicy
+  }
+}
+
+resource petStoreApiExample 'Microsoft.ApiManagement/service/apis@2020-06-01-preview' = {
+  name: '${apiManagementService.name}/PetStoreSwaggerImportExample'
+  properties: {
+    format: 'swagger-link-json'
+    value: 'http://petstore.swagger.io/v2/swagger.json'
+    path: 'examplepetstore'
+  }
+}
+
+resource exampleApi 'Microsoft.ApiManagement/service/apis@2020-06-01-preview' = {
+  name: '${apiManagementService.name}/exampleApi'
+  properties: {
+    displayName: 'Example API Name'
+    description: 'Description for example API'
+    serviceUrl: 'https://example.net'
+    path: 'exampleapipath'
+    protocols: [
+      'https'
+    ]
+  }
+}
 ```
 
 | Number | Title                                    | Year |

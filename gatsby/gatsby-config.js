@@ -1,14 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Tyson Benson`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Tyson Benson`,
+      summary: `who lives and works in Australia building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `Tyson Benson is a programmer, technologist, teacher, developer advocate and more.`,
+    siteUrl: `https://blog.tyson.net.au/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `Tyson_net_au`,
+      github: `tyson-benson`,
     },
   },
   plugins: [
@@ -18,6 +19,14 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `${__dirname}/src/images`, // See below to configure properly
+        },
       },
     },
     {
@@ -43,8 +52,14 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              additionalLanguages: ["powershell", "csharp", "docker", "bicep"],
+            },
+          },
           `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-external-links`,
           `gatsby-remark-smartypants`,
         ],
       },
