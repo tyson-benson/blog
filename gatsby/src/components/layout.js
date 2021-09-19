@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { isBrowser } from "../utils"
 import TwitterIcon from "../images/twitter-icon.svg"
 import GitHubIcon from "../images/github-icon.svg"
 import YouTubeIcon from "../images/youtube-icon.svg"
@@ -9,16 +10,21 @@ import ColorModeToggle from "./colormode"
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  const preference = window?.localStorage.preferDark
+  const preference = isBrowser()
+    ? window.localStorage.preferDark == "true"
+    : false
   let isDarkPreference =
     preference == "true" || preference === undefined ? true : false
   let [isDark, setIsDark] = React.useState(isDarkPreference)
 
   const updateDarkModeClass = () => {
-    if (isDark) {
-      document.documentElement.setAttribute("data-color-mode", "dark")
-    } else {
-      document.documentElement.setAttribute("data-color-mode", "light")
+    if (isBrowser()) {
+      if (isDark) {
+        document.documentElement.setAttribute("data-color-mode", "dark")
+      } else {
+        document.documentElement.setAttribute("data-color-mode", "light")
+      }
+      window.localStorage.setItem("preferDark", `${isDark}`)
     }
   }
   updateDarkModeClass()
