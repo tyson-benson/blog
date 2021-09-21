@@ -14,7 +14,7 @@ const Layout = ({ location, title, children }) => {
     ? window.localStorage.preferDark == "true"
     : false
   let isDarkPreference =
-    preference == "true" || preference === undefined ? true : false
+    preference === true || preference === undefined ? true : false
   let [isDark, setIsDark] = React.useState(isDarkPreference)
 
   const updateDarkModeClass = () => {
