@@ -31,7 +31,7 @@
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-serif: "Georgia", Cambria, "Times New Roman", Times, serif;
-  --font-body: var(--fontFamily-serif);
+  --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
   --fontWeight-medium: 500;
@@ -310,18 +310,30 @@ a:focus {
 .socials a {
   vertical-align: middle;
   margin: 5px 6px;
-  opacity: 0.7;
 }
-.socials img {
+.socials a:hover svg,
+.socials a:active svg {
+  opacity: 1;
+}
+.socials svg {
   height: 25px;
+  opacity: 0.7;
+  transition: opacity 100ms;
 }
-.socials .twitter img {
+
+.socials svg path {
+  fill: black;
+}
+[data-color-mode="dark"] .socials svg path {
+  fill: var(--color-primary);
+}
+.socials .twitter svg {
   height: 26px;
 }
-.socials .youtube img {
+.socials .youtube svg {
   height: 28px;
 }
-.socials .linkedin img {
+.socials .linkedin svg {
   height: 24px;
 }
 
