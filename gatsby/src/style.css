@@ -251,6 +251,77 @@ a:focus {
   text-decoration: none;
 }
 
+a.fancy {
+  position: relative;
+}
+a.fancy:hover {
+  background: linear-gradient(
+    -45deg,
+    #6aab02,
+    #6aab02,
+    #082e0e,
+    #71c00a,
+    #065d49,
+    #6aab02,
+    #6aab02
+  );
+  background-size: 500% 500%;
+  animation: gradient 10s ease infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+a.fancy::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    -45deg,
+    #6aab028e,
+    #082e0e8e,
+    #71c00a8e,
+    #065d498e
+  );
+  visibility: hidden;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all 0.2s ease-in-out 0s;
+}
+a.fancy:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+[data-color-mode="dark"] a.fancy:hover {
+  background: linear-gradient(
+    -45deg,
+    #6ddf94,
+    #6ddf94,
+    #177926,
+    #a6f143,
+    #3a927e,
+    #6ddf94,
+    #6ddf94
+  );
+  background-size: 500% 500%;
+  animation: gradient 10s ease infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+[data-color-mode="dark"] a.fancy::before {
+  background: linear-gradient(
+    -45deg,
+    #6ddf948e,
+    #1779268e,
+    #a6f1438e,
+    #3a927e8e
+  );
+}
+
 /* Custom classes */
 
 .global-wrapper {
@@ -444,6 +515,42 @@ ol article header,
   opacity: 0.7;
   margin-left: 2rem;
   cursor: pointer;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.color-toggle-btn svg {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  transition: all 300ms ease-in-out;
+}
+.color-toggle-btn #dark-icon {
+  fill: black;
+  top: 0px;
+}
+.color-toggle-btn:hover #dark-icon,
+.color-toggle-btn:active #dark-icon {
+  fill: #00754e;
+}
+.color-toggle-btn #light-icon {
+  fill: white;
+}
+
+.color-toggle-btn:hover #light-icon,
+.color-toggle-btn:active #light-icon {
+  fill: #ffe032;
+}
+
+[data-color-mode="dark"] .color-toggle-btn #light-icon {
+  top: 0px;
+}
+
+[data-color-mode="dark"] .color-toggle-btn #dark-icon {
+  top: 30px;
 }
 
 .bio {
