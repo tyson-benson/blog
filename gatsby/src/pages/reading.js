@@ -4,24 +4,24 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const AboutMe = ({ data, location }) => {
+const Reading = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="About me" />
+      <Seo title="What's on my bookshelf" />
       <div className="page-wrapper">
-        <h1>About Me</h1>
+        <h1>Reading</h1>
 
-        <p>My photo</p>
+        <p>Bookshelf</p>
 
-        <p>Longer bio</p>
+        <p>List of books I have and will read</p>
       </div>
     </Layout>
   )
 }
 
-export default AboutMe
+export default Reading
 
 export const pageQuery = graphql`
   query {

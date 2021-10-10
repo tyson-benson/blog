@@ -3,9 +3,9 @@ module.exports = {
     title: `Tyson Benson`,
     author: {
       name: `Tyson Benson`,
-      summary: `who lives and works in Australia building useful things.`,
+      summary: `who lives and works in Coffs Harbour - a beautiful spot in Australia. An accomplished software developer and hands on solution architect since 2012. My opinions are my own.`,
     },
-    description: `Tyson Benson is a programmer, technologist, teacher, developer advocate and more.`,
+    description: `Tyson Benson is a programmer, technologist, mentor, developer advocate and more.`,
     siteUrl: `https://blog.tyson.net.au/`,
     social: {
       twitter: `Tyson_net_au`,

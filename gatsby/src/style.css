@@ -265,7 +265,18 @@ a:focus {
 .global-header {
   display: flex;
   padding: var(--spacing-6);
-  background: var(--color-accent);
+  background-color: var(--color-accent);
+
+  background-image: url(./images/subtle/white-prism.png);
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  background-position-y: 94px; /* height of the header/nav - most of the time  */
+}
+
+[data-color-mode="dark"] .global-header {
+  background-color: var(--background-color);
+  background-image: url(./images/subtle/prism.png);
+  background-blend-mode: normal;
 }
 
 .global-header h1 {
@@ -274,6 +285,33 @@ a:focus {
   font-size: var(--fontSize-2);
   display: inline-block;
   margin: 0;
+}
+
+.global-header h1 a {
+  color: transparent;
+  background: linear-gradient(-45deg, #52eea5, #082e0e, #71c00a, #065d49);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  -webkit-background-clip: text;
+}
+
+[data-color-mode="dark"] .global-header h1 a {
+  background: linear-gradient(-45deg, #86f5c1, #177926, #a6f143, #3a927e);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  -webkit-background-clip: text;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .global-header nav {
@@ -288,12 +326,45 @@ a:focus {
   margin: 0;
 }
 
+.global-header nav a {
+  color: var(--color-heading);
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 3px;
+}
+
 .global-header nav ul li {
   display: inline-block;
   margin: 0 10px;
 }
 
 .content-wrapper {
+  /* margin: var(--spacing-0) auto;
+  max-width: var(--maxWidth-wrapper);
+  padding: var(--spacing-10) var(--spacing-5); */
+}
+
+article header {
+  background: #f9f9f9 url(./images/subtle/white-prism.png) repeat;
+}
+
+[data-color-mode="dark"] article header {
+  background: #353535 url(./images/subtle/prism.png) repeat;
+  background-blend-mode: luminosity;
+  background-color: #00ffe8;
+}
+
+ol article header,
+[data-color-mode="dark"] ol article header {
+  background: none;
+}
+
+.blog-header-wrapper {
+  margin: var(--spacing-0) auto;
+  max-width: var(--maxWidth-wrapper);
+  padding: var(--spacing-20) var(--spacing-5) var(--spacing-10);
+}
+
+.page-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-5);
@@ -395,6 +466,12 @@ a:focus {
 .blog-post header p {
   font-size: var(--fontSize-2);
   font-family: var(--font-heading);
+}
+
+.blog-post-nav {
+  margin: var(--spacing-0) auto;
+  max-width: var(--maxWidth-wrapper);
+  padding: var(--spacing-0) var(--spacing-5) var(--spacing-10);
 }
 
 .blog-post-nav ul {
