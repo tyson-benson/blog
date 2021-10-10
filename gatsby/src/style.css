@@ -288,18 +288,21 @@ a:focus {
 }
 
 .global-header h1 a {
-  color: transparent;
   background: linear-gradient(-45deg, #52eea5, #082e0e, #71c00a, #065d49);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+  background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 [data-color-mode="dark"] .global-header h1 a {
   background: linear-gradient(-45deg, #86f5c1, #177926, #a6f143, #3a927e);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+  background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes gradient {
