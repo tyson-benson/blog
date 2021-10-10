@@ -41,7 +41,12 @@ const BlogIndex = ({ data, location }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link
+                      to={"/blog" + post.fields.slug}
+                      itemProp="url"
+                      prefix="blog"
+                      className="fancy"
+                    >
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
