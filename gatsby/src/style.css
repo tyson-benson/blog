@@ -337,8 +337,9 @@ a.fancy:hover::before {
   display: flex;
   padding: var(--spacing-6);
   background-color: var(--color-accent);
+  box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.2);
 
-  background-image: url(./images/subtle/white-prism.png);
+  /* background-image: url(./images/subtle/white-prism.png); */
   background-repeat: repeat;
   background-blend-mode: multiply;
   background-position-y: 94px; /* height of the header/nav - most of the time  */
@@ -346,7 +347,7 @@ a.fancy:hover::before {
 
 [data-color-mode="dark"] .global-header {
   background-color: var(--background-color);
-  background-image: url(./images/subtle/prism.png);
+  /* background-image: url(./images/subtle/prism.png); */
   background-blend-mode: normal;
 }
 
@@ -418,11 +419,11 @@ a.fancy:hover::before {
 }
 
 article header {
-  background: #f9f9f9 url(./images/subtle/white-prism.png) repeat;
+  /* background: #f9f9f9 url(./images/subtle/white-prism.png) repeat; */
 }
 
 [data-color-mode="dark"] article header {
-  background: #353535 url(./images/subtle/prism.png) repeat;
+  /* background: #353535 url(./images/subtle/prism.png) repeat; */
   background-blend-mode: luminosity;
   background-color: #00ffe8;
 }
