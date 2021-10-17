@@ -423,7 +423,7 @@ article header {
 }
 
 [data-color-mode="dark"] article header {
-  /* background: #353535 url(./images/subtle/prism.png) repeat; */
+  background: #353535 url(./images/subtle/prism.png) repeat;
   background-blend-mode: luminosity;
   background-color: #00ffe8;
 }
