@@ -27,6 +27,7 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
+  --spacing-40: 10rem;
   --fontFamily-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -59,6 +60,9 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #dce9da;
+  --light-texture: url(https://tysonnetau.blob.core.windows.net/blog/images/white-prism.png);
+  --dark-texture: url(https://tysonnetau.blob.core.windows.net/blog/images/stars.jpg);
+  --dark-bg: url(https://tysonnetau.blob.core.windows.net/blog/images/nebula.png);
 }
 
 [data-color-mode="dark"] {
@@ -90,8 +94,9 @@ html {
   transition-duration: 200ms;
 }
 
-[data-color-mode="dark"] html {
-  background: #010409 url(./images/nebula.png) top center no-repeat;
+html[data-color-mode="dark"] {
+  background: #010409 top center no-repeat;
+  background-image: var(--dark-bg);
   background-size: cover;
 }
 
@@ -108,7 +113,7 @@ footer {
 
 [data-color-mode="dark"] footer {
   background: rgb(2 76 62 / 30%);
-  backdrop-filter: blur(50px) saturate(1.5) hue-rotate(45deg);
+  backdrop-filter: blur(50px) saturate(1.5) hue-rotate(15deg);
 }
 
 footer.bio {
@@ -354,7 +359,7 @@ a.fancy:hover::before {
   background-color: var(--color-accent);
   box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.2);
 
-  background-image: url(./images/subtle/white-prism.png);
+  background-image: var(--light-texture);
   background-repeat: repeat;
   background-blend-mode: multiply;
   background-position-y: 94px; /* height of the header/nav - most of the time  */
@@ -362,7 +367,7 @@ a.fancy:hover::before {
 
 [data-color-mode="dark"] .global-header {
   background: rgb(2 76 62 / 30%);
-  backdrop-filter: blur(50px) saturate(1.5) hue-rotate(45deg);
+  backdrop-filter: blur(4px) saturate(1.5) hue-rotate(15deg);
   box-shadow: 0 0 20px rgb(0 0 0 / 50%);
 }
 
@@ -434,15 +439,30 @@ a.fancy:hover::before {
 }
 
 article header {
-  background: #f9f9f9 url(./images/subtle/white-prism.png) repeat;
+  background: #f9f9f9 repeat;
+  background-image: var(--light-texture);
 }
 
 [data-color-mode="dark"] article header {
   background: #02414c;
   background: linear-gradient(to bottom, #01171c 0%, #02414c 100%);
-  background-image: url(./images/stars.jpg);
-  background-position: center center;
+  background-image: var(--dark-texture);
+  background-position: 0% 0%;
   background-size: cover;
+  animation: verticalpan 60s ease-in-out infinite;
+  margin-top: -100px;
+}
+
+@keyframes verticalpan {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
 ol article header,
@@ -458,6 +478,7 @@ ol article header,
 
 [data-color-mode="dark"] .blog-header-wrapper h1 {
   text-shadow: 2px 2px 2px rgb(0 0 0 / 80%);
+  padding-top: var(--spacing-20);
 }
 
 .page-wrapper {
