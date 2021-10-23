@@ -2,10 +2,6 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { isBrowser } from "../utils"
 import ColorModeToggle from "./colormode"
-import { StaticImage } from "gatsby-plugin-image"
-import stars from "../images/stars.jpg"
-import nebula from "../images/nebula.png"
-import whitePrism from "../images/subtle/white-prism.png"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
