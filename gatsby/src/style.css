@@ -60,9 +60,9 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #dce9da;
-  --light-texture: url(https://tysonnetau.blob.core.windows.net/blog/images/white-prism.png);
+  /* --light-texture: url(https://tysonnetau.blob.core.windows.net/blog/images/white-prism.png);
   --dark-texture: url(https://tysonnetau.blob.core.windows.net/blog/images/stars.jpg);
-  --dark-bg: url(https://tysonnetau.blob.core.windows.net/blog/images/nebula.png);
+  --dark-bg: url(https://tysonnetau.blob.core.windows.net/blog/images/nebula.png); */
 }
 
 [data-color-mode="dark"] {
