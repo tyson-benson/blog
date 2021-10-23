@@ -6,7 +6,7 @@ module.exports = {
       summary: `who lives and works in Coffs Harbour - a beautiful spot in Australia. An accomplished software developer and hands on solution architect since 2012. My opinions are my own.`,
     },
     description: `Tyson Benson is a programmer, technologist, mentor, developer advocate and more.`,
-    siteUrl: `https://blog.tyson.net.au/`,
+    siteUrl: `https://www.tyson.net.au/`,
     social: {
       twitter: `Tyson_net_au`,
       github: `tyson-benson`,
@@ -120,6 +120,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
+            title: "Tyson Benson Blog RSS Feed",
           },
         ],
       },
@@ -131,6 +132,8 @@ module.exports = {
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/favicon-196.png`, // This path is relative to the root of the site.

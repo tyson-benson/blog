@@ -85,6 +85,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
+  background: #010409 url(./images/nebula.png) top center no-repeat;
+  background-size: cover;
   transition-property: color background-color;
   transition-duration: 200ms;
 }
@@ -98,6 +100,11 @@ body {
 footer {
   padding: var(--spacing-4) var(--spacing-6);
   background: var(--color-accent);
+}
+
+[data-color-mode="dark"] footer {
+  background: rgb(2 65 76 / 30%);
+  backdrop-filter: blur(50px) saturate(1.5) hue-rotate(45deg);
 }
 
 hr {
@@ -339,16 +346,15 @@ a.fancy:hover::before {
   background-color: var(--color-accent);
   box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.2);
 
-  /* background-image: url(./images/subtle/white-prism.png); */
+  background-image: url(./images/subtle/white-prism.png);
   background-repeat: repeat;
   background-blend-mode: multiply;
   background-position-y: 94px; /* height of the header/nav - most of the time  */
 }
 
 [data-color-mode="dark"] .global-header {
-  background-color: var(--background-color);
-  /* background-image: url(./images/subtle/prism.png); */
-  background-blend-mode: normal;
+  background: rgb(2 65 76 / 30%);
+  backdrop-filter: blur(50px) saturate(1.5) hue-rotate(45deg);
 }
 
 .global-header h1 {
@@ -419,13 +425,15 @@ a.fancy:hover::before {
 }
 
 article header {
-  /* background: #f9f9f9 url(./images/subtle/white-prism.png) repeat; */
+  background: #f9f9f9 url(./images/subtle/white-prism.png) repeat;
 }
 
 [data-color-mode="dark"] article header {
-  background: #353535 url(./images/subtle/prism.png) repeat;
-  background-blend-mode: luminosity;
-  background-color: #00ffe8;
+  background: #02414c;
+  background: linear-gradient(to bottom, #01171c 0%, #02414c 100%);
+  background-image: url(./images/stars.jpg);
+  background-position: center center;
+  background-size: cover;
 }
 
 ol article header,
@@ -437,6 +445,10 @@ ol article header,
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-20) var(--spacing-5) var(--spacing-10);
+}
+
+[data-color-mode="dark"] .blog-header-wrapper h1 {
+  text-shadow: 2px 2px 2px rgb(0 0 0 / 80%);
 }
 
 .page-wrapper {
@@ -591,6 +603,12 @@ ol article header,
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+
+[data-color-mode="dark"] :not(pre) > code[class*="language-"],
+[data-color-mode="dark"] pre[class*="language-"] {
+  background-color: rgb(27 54 47 / 60%);
+  backdrop-filter: blur(50px);
 }
 
 /* Media queries */
