@@ -10,13 +10,21 @@ const AboutMe = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="About me" />
-      <div className="page-wrapper">
-        <h1>About Me</h1>
-
-        <p>My photo</p>
-
-        <p>Longer bio</p>
-      </div>
+      <article
+        className="blog-post"
+        itemScope
+        itemType="http://schema.org/Article"
+      >
+        <header>
+          <div className="blog-header-wrapper">
+            <h1>About Me</h1>
+          </div>
+        </header>
+        <div className="page-wrapper">
+          <p>My photo</p>
+          <p>Longer bio</p>
+        </div>
+      </article>
     </Layout>
   )
 }

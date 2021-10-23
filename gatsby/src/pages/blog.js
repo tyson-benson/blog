@@ -27,7 +27,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <ol style={{ listStyle: `none` }} className="page-wrapper">
+      <ol style={{ listStyle: `none` }} className="page-wrapper post-list">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
