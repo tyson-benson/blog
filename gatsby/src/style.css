@@ -85,10 +85,14 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
-  background: #010409 url(./images/nebula.png) top center no-repeat;
   background-size: cover;
   transition-property: color background-color;
   transition-duration: 200ms;
+}
+
+[data-color-mode="dark"] html {
+  background: #010409 url(./images/nebula.png) top center no-repeat;
+  background-size: cover;
 }
 
 body {
@@ -103,8 +107,12 @@ footer {
 }
 
 [data-color-mode="dark"] footer {
-  background: rgb(2 65 76 / 30%);
+  background: rgb(2 76 62 / 30%);
   backdrop-filter: blur(50px) saturate(1.5) hue-rotate(45deg);
+}
+
+footer.bio {
+  border-radius: 10px;
 }
 
 hr {
@@ -353,8 +361,9 @@ a.fancy:hover::before {
 }
 
 [data-color-mode="dark"] .global-header {
-  background: rgb(2 65 76 / 30%);
+  background: rgb(2 76 62 / 30%);
   backdrop-filter: blur(50px) saturate(1.5) hue-rotate(45deg);
+  box-shadow: 0 0 20px rgb(0 0 0 / 50%);
 }
 
 .global-header h1 {
