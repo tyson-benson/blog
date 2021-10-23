@@ -135,6 +135,8 @@ const Layout = ({ location, title, children }) => {
         <a href="https://github.com/tyson-benson/blog/commit/6167acae10b3bb9ba88aa3af7a2f3d0603ae56c9">
           6167acae
         </a>
+        .{` `}
+        <a href="/attributions">Attributions</a>
       </footer>
     </div>
   )
