@@ -3,7 +3,7 @@ module.exports = {
     title: `Tyson Benson`,
     author: {
       name: `Tyson Benson`,
-      summary: `, an accomplished software developer and hands on solution architect. He has worked in the EdTech industry for over a decade building, online learning and assessment SaaS web applications.`,
+      summary: `, an accomplished software developer and hands on solution architect. He has worked in the EdTech industry for over a decade building online learning and assessment SaaS web applications. Tyson has been striving to drive architectural, technology, process and culture improvements at work, inspired by his learning and reading on DevOps and similar topics.`,
     },
     description: `Tyson Benson is a programmer, technologist, mentor, developer advocate and more.`,
     siteUrl: `https://www.tyson.net.au/`,
