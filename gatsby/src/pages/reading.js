@@ -66,10 +66,7 @@ const Reading = ({ data, location }) => {
                   src="../images/books/fundamentals-of-software-architecture.jpg"
                   alt="Fundamentals of Software Architecture Front Cover"
                 />
-                <figcaption>
-                  Fundamentals of Software Architecture - An Engineering
-                  Approach
-                </figcaption>
+                <figcaption>Fundamentals of Software Architecture</figcaption>
               </figure>
             </li>
             <li>
