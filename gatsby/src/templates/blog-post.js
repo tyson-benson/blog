@@ -1,14 +1,19 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { ReactCusdis } from "react-cusdis"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { isBrowser } from "../utils"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+  const preferDark = isBrowser()
+    ? window.localStorage.preferDark == "true"
+    : false
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -36,6 +41,17 @@ const BlogPostTemplate = ({ data, location }) => {
           <footer className="bio">
             <Bio />
           </footer>
+          <h1>Comments</h1>
+          <ReactCusdis
+            attrs={{
+              host: "https://cusdis.com",
+              appId: "c2d99525-4191-4865-9932-aa6d0a514a9a",
+              theme: preferDark ? "dark" : "light",
+              pageId: post.id,
+              pageTitle: post.frontmatter.title,
+              // pageUrl: "PAGE_URL",
+            }}
+          />
         </div>
       </article>
       <nav className="blog-post-nav">

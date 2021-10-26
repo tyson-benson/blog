@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { isBrowser } from "../utils"
 import ColorModeToggle from "./colormode"
+import * as tawk from "./tawk"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -12,13 +13,22 @@ const Layout = ({ location, title, children }) => {
   let isDarkPreference =
     preference === true || preference === undefined ? true : false
   let [isDark, setIsDark] = React.useState(isDarkPreference)
+  if (isBrowser()) {
+    window.CUSDIS_DEFAULT_THEME = isDark ? "dark" : "light"
+  }
 
   const updateDarkModeClass = () => {
     if (isBrowser()) {
       if (isDark) {
         document.documentElement.setAttribute("data-color-mode", "dark")
+        if (window.CUSDIS) {
+          window.CUSDIS.setTheme("dark")
+        }
       } else {
         document.documentElement.setAttribute("data-color-mode", "light")
+        if (window.CUSDIS) {
+          window.CUSDIS.setTheme("light")
+        }
       }
       window.localStorage.setItem("preferDark", `${isDark}`)
     }
