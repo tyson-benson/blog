@@ -1,17 +1,13 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { isBrowser } from "../utils"
+import { isBrowser, getDarkPreference } from "../utils"
 import ColorModeToggle from "./colormode"
 import * as tawk from "./tawk"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  const preference = isBrowser()
-    ? window.localStorage.preferDark == "true"
-    : false
-  let isDarkPreference =
-    preference === true || preference === undefined ? true : false
+  let isDarkPreference = getDarkPreference()
   let [isDark, setIsDark] = React.useState(isDarkPreference)
   if (isBrowser()) {
     window.CUSDIS_DEFAULT_THEME = isDark ? "dark" : "light"
@@ -21,16 +17,22 @@ const Layout = ({ location, title, children }) => {
     if (isBrowser()) {
       if (isDark) {
         document.documentElement.setAttribute("data-color-mode", "dark")
-        if (window.CUSDIS) {
-          window.CUSDIS.setTheme("dark")
-        }
+        updateCusdisTheme("dark")
       } else {
         document.documentElement.setAttribute("data-color-mode", "light")
-        if (window.CUSDIS) {
-          window.CUSDIS.setTheme("light")
-        }
+        updateCusdisTheme("light")
       }
       window.localStorage.setItem("preferDark", `${isDark}`)
+    }
+  }
+
+  const updateCusdisTheme = theme => {
+    try {
+      if (window.CUSDIS && document.querySelector("#cusdis_thread")) {
+        window.CUSDIS.setTheme(theme)
+      }
+    } catch (error) {
+      console.warn(`Failed to set Cusdis theme`, error)
     }
   }
   updateDarkModeClass()

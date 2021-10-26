@@ -5,15 +5,15 @@ import { ReactCusdis } from "react-cusdis"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { isBrowser } from "../utils"
+import { getDarkPreference } from "../utils"
+import { Player, Controls } from "@lottiefiles/react-lottie-player"
+import astronautJson from "../animations/astronaut.json"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  const preferDark = isBrowser()
-    ? window.localStorage.preferDark == "true"
-    : false
+  const preferDark = getDarkPreference()
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -28,8 +28,24 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <div className="blog-header-wrapper">
-            <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.date}</p>
+            <div style={{ display: "flex" }}>
+              <div style={{ flex: 1 }}>
+                <h1 itemProp="headline">{post.frontmatter.title}</h1>
+                <p>{post.frontmatter.date}</p>
+              </div>
+              <div>
+                {/* TODO find a way to make the src dynamic/defined by each blog post */}
+                <Player
+                  autoplay
+                  src={astronautJson}
+                  style={{
+                    height: "400px",
+                    width: "400px",
+                    margin: "-50px 0",
+                  }}
+                ></Player>
+              </div>
+            </div>
           </div>
         </header>
         <div className="page-wrapper">

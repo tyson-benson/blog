@@ -38,6 +38,18 @@ const Attributions = ({ data, location }) => {
             </a>
             .
           </li>
+          <li>
+            <a href="https://iconscout.com/lotties/astronot" target="_blank">
+              Astronot Lottie Animation
+            </a>{" "}
+            by{" "}
+            <a
+              href="https://iconscout.com/contributors/east-supply"
+              target="_blank"
+            >
+              East Supply
+            </a>
+          </li>
         </ul>
       </div>
     </Layout>
