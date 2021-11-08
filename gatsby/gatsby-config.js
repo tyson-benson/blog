@@ -29,6 +29,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `animations`,
+        path: `${__dirname}/src/animations`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -47,7 +54,21 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              additionalLanguages: ["powershell", "csharp", "docker", "bicep"],
+              additionalLanguages: [
+                "powershell",
+                "csharp",
+                "docker",
+                "dotnet",
+                "bicep",
+                "regex",
+                "gherkin",
+                "git",
+                "http",
+                "typescript",
+                "scss",
+                "mermaid",
+                "yaml",
+              ],
             },
           },
           `gatsby-remark-copy-linked-files`,
