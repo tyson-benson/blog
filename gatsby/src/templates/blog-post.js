@@ -6,8 +6,6 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { getDarkPreference } from "../utils"
-import { Player, Controls } from "@lottiefiles/react-lottie-player"
-import astronautJson from "../animations/astronaut.json"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -28,24 +26,8 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <div className="blog-header-wrapper">
-            <div style={{ display: "flex" }}>
-              <div style={{ flex: 1 }}>
-                <h1 itemProp="headline">{post.frontmatter.title}</h1>
-                <p>{post.frontmatter.date}</p>
-              </div>
-              <div>
-                {/* TODO find a way to make the src dynamic/defined by each blog post */}
-                <Player
-                  autoplay
-                  src={astronautJson}
-                  style={{
-                    height: "400px",
-                    width: "400px",
-                    margin: "-50px 0",
-                  }}
-                ></Player>
-              </div>
-            </div>
+            <h1 itemProp="headline">{post.frontmatter.title}</h1>
+            <p>{post.frontmatter.date}</p>
           </div>
         </header>
         <div className="page-wrapper">
@@ -82,14 +64,14 @@ const BlogPostTemplate = ({ data, location }) => {
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link to={"/blog" + previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link to={"/blog" + next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
