@@ -32,6 +32,7 @@
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-serif: "Georgia", Cambria, "Times New Roman", Times, serif;
+  --fontFamily-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
@@ -195,7 +196,7 @@ p {
   line-height: var(--lineHeight-relaxed);
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
   padding: var(--spacing-0);
 }
 
@@ -224,8 +225,19 @@ li *:last-child {
 }
 
 li > ul {
-  margin-left: var(--spacing-8);
+  /* margin-left: var(--spacing-8); */
   margin-top: calc(var(--spacing-8) / 2);
+}
+
+ol > li > ul {
+  list-style-type: disc;
+}
+ol > li > ul > li > ul {
+  list-style-type: circle;
+}
+
+.blog-post .gatsby-resp-image-wrapper {
+  margin-top: var(--spacing-4);
 }
 
 blockquote {
@@ -312,6 +324,13 @@ a.fancy::before {
 a.fancy:hover::before {
   visibility: visible;
   transform: scaleX(1);
+}
+a[target="_blank"]::after {
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgc3R5bGU9ImZpbGw6IzZhYWIwMjt2ZXJ0aWNhbC1hbGlnbjogLTRweDttYXJnaW4tbGVmdDogMHB4OyI+PHBhdGggZD0iTSAxOCA1IEwgMTggNyBMIDIzLjU2MjUgNyBMIDExLjI4MTI1IDE5LjI4MTI1IEwgMTIuNzE4NzUgMjAuNzE4NzUgTCAyNSA4LjQzNzUgTCAyNSAxNCBMIDI3IDE0IEwgMjcgNSBaIE0gNSA5IEwgNSAyNyBMIDIzIDI3IEwgMjMgMTQgTCAyMSAxNiBMIDIxIDI1IEwgNyAyNSBMIDcgMTEgTCAxNiAxMSBMIDE4IDkgWiI+PC9wYXRoPjwvc3ZnPg==");
+  vertical-align: -4px;
+}
+[data-color-mode="dark"] a[target="_blank"]::after {
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgc3R5bGU9ImZpbGw6IzZkZGY5NDt2ZXJ0aWNhbC1hbGlnbjogLTRweDttYXJnaW4tbGVmdDogMHB4OyI+PHBhdGggZD0iTSAxOCA1IEwgMTggNyBMIDIzLjU2MjUgNyBMIDExLjI4MTI1IDE5LjI4MTI1IEwgMTIuNzE4NzUgMjAuNzE4NzUgTCAyNSA4LjQzNzUgTCAyNSAxNCBMIDI3IDE0IEwgMjcgNSBaIE0gNSA5IEwgNSAyNyBMIDIzIDI3IEwgMjMgMTQgTCAyMSAxNiBMIDIxIDI1IEwgNyAyNSBMIDcgMTEgTCAxNiAxMSBMIDE4IDkgWiI+PC9wYXRoPjwvc3ZnPg==");
 }
 
 [data-color-mode="dark"] a.fancy:hover {
@@ -650,7 +669,7 @@ ol article header,
 [data-color-mode="dark"] :not(pre) > code[class*="language-"],
 [data-color-mode="dark"] pre[class*="language-"] {
   background-color: rgb(27 54 47 / 60%);
-  backdrop-filter: blur(50px);
+  /* backdrop-filter: blur(50px); */
 }
 
 .book-list {
@@ -685,6 +704,539 @@ ol article header,
 }
 
 [data-color-mode="dark"] .heading-accent {
+}
+
+/* Light PrismJS theme */
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  background: none;
+  text-shadow: 0 1px white;
+  font-family: var(--fontFamily-mono);
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+  /* This background color was intended by the author of this theme. */
+  /* background: hsla(0, 0%, 100%, 0.5); */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+.token.function,
+.token.class-name {
+  color: #dd4a68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Dark PrismJS theme */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+[data-color-mode="dark"] code[class*="language-"],
+[data-color-mode="dark"] pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: var(--fontFamily-mono);
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+[data-color-mode="dark"] pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+[data-color-mode="dark"] :not(pre) > code[class*="language-"],
+[data-color-mode="dark"] pre[class*="language-"] {
+  background: #272822;
+}
+
+/* Inline code */
+[data-color-mode="dark"] :not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+[data-color-mode="dark"] .token.comment,
+[data-color-mode="dark"] .token.prolog,
+[data-color-mode="dark"] .token.doctype,
+[data-color-mode="dark"] .token.cdata {
+  color: #8292a2;
+}
+
+[data-color-mode="dark"] .token.punctuation {
+  color: #f8f8f2;
+}
+
+[data-color-mode="dark"] .token.namespace {
+  opacity: 0.7;
+}
+
+[data-color-mode="dark"] .token.property,
+[data-color-mode="dark"] .token.tag,
+[data-color-mode="dark"] .token.constant,
+[data-color-mode="dark"] .token.symbol,
+[data-color-mode="dark"] .token.deleted {
+  color: #f92672;
+}
+
+[data-color-mode="dark"] .token.boolean,
+[data-color-mode="dark"] .token.number {
+  color: #ae81ff;
+}
+
+[data-color-mode="dark"] .token.selector,
+[data-color-mode="dark"] .token.attr-name,
+[data-color-mode="dark"] .token.string,
+[data-color-mode="dark"] .token.char,
+[data-color-mode="dark"] .token.builtin,
+[data-color-mode="dark"] .token.inserted {
+  color: #a6e22e;
+}
+
+[data-color-mode="dark"] .token.operator,
+[data-color-mode="dark"] .token.entity,
+[data-color-mode="dark"] .token.url,
+[data-color-mode="dark"] .language-css .token.string,
+[data-color-mode="dark"] .style .token.string,
+[data-color-mode="dark"] .token.variable {
+  color: #f8f8f2;
+}
+
+[data-color-mode="dark"] .token.atrule,
+[data-color-mode="dark"] .token.attr-value,
+[data-color-mode="dark"] .token.function,
+[data-color-mode="dark"] .token.class-name {
+  color: #e6db74;
+}
+
+[data-color-mode="dark"] .token.keyword {
+  color: #66d9ef;
+}
+
+[data-color-mode="dark"] .token.regex,
+[data-color-mode="dark"] .token.important {
+  color: #fd971f;
+}
+
+[data-color-mode="dark"] .token.important,
+[data-color-mode="dark"] .token.bold {
+  font-weight: bold;
+}
+[data-color-mode="dark"] .token.italic {
+  font-style: italic;
+}
+
+[data-color-mode="dark"] .token.entity {
+  cursor: help;
+}
+
+/* PrismJS plugins */
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+.gatsby-highlight {
+  background-color: #fdf6e3;
+  border-radius: 0.3em;
+  margin: var(--spacing-4) 0;
+  padding: 1.4em 1em 1em 1em;
+  overflow: auto;
+  position: relative;
+}
+[data-color-mode="dark"] .gatsby-highlight {
+  background-color: #272822;
+}
+
+/**
+ * Remove the default PrismJS theme background-color, border-radius, margin,
+ * padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ * 3. Adjust the position of the line numbers
+ */
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left;
+  min-width: 100%;
+}
+.gatsby-highlight-code-line {
+  background-color: #b3d9f2cc;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #006edb;
+}
+[data-color-mode="dark"] .gatsby-highlight-code-line {
+  background-color: #1b3855cc;
+}
+
+/* PrismJS language badges */
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  border: 0;
+  padding: 10px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.gatsby-highlight pre[class*="language-"]::before {
+  background: #d9d7e0;
+  color: #232129;
+  border-radius: 0 0 6px 6px;
+  font-size: 0.7rem;
+  font-family: var(--fontFamily-mono);
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 6px 9px;
+  position: absolute;
+  left: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0;
+  text-shadow: none;
+}
+.gatsby-highlight pre[class="language-javascript"]::before,
+.gatsby-highlight pre[class="language-diff-javascript"]::before {
+  content: "js";
+  background: #f7df1e;
+}
+.gatsby-highlight pre[class="language-js"]::before,
+.gatsby-highlight pre[class="language-diff-js"]::before {
+  content: "js";
+  background: #f7df1e;
+}
+.gatsby-highlight pre[class="language-diff-jsx"]::before,
+.gatsby-highlight pre[class="language-jsx"]::before {
+  content: "jsx";
+  background: #61dafb;
+}
+.gatsby-highlight pre[class="language-typescript"]::before,
+.gatsby-highlight pre[class="language-diff-typescript"]::before {
+  content: "ts";
+  background: #294e80;
+  color: white;
+}
+.gatsby-highlight pre[class="language-ts"]::before,
+.gatsby-highlight pre[class="language-diff-ts"]::before {
+  content: "ts";
+  background: #294e80;
+  color: white;
+}
+.gatsby-highlight pre[class="language-tsx"]::before,
+.gatsby-highlight pre[class="language-diff-tsx"]::before {
+  content: "tsx";
+  background: #294e80;
+  color: white;
+}
+.gatsby-highlight pre[class="language-graphql"]::before,
+.gatsby-highlight pre[class="language-diff-graphql"]::before {
+  content: "GraphQL";
+  background: #e10098;
+  color: white;
+}
+.gatsby-highlight pre[class="language-regex"]::before,
+.gatsby-highlight pre[class="language-diff-regex"]::before {
+  content: "regex";
+  background: #e10043;
+  color: white;
+}
+.gatsby-highlight pre[class="language-html"]::before,
+.gatsby-highlight pre[class="language-diff-html"]::before {
+  content: "html";
+  background: #005a9c;
+  color: white;
+}
+.gatsby-highlight pre[class="language-bicep"]::before,
+.gatsby-highlight pre[class="language-diff-bicep"]::before {
+  content: "bicep";
+  background: #00859c;
+  color: white;
+}
+.gatsby-highlight pre[class="language-css"]::before,
+.gatsby-highlight pre[class="language-diff-css"]::before {
+  content: "css";
+  background: #ff9800;
+  color: white;
+}
+.gatsby-highlight pre[class="language-scss"]::before,
+.gatsby-highlight pre[class="language-diff-scss"]::before {
+  content: "scss";
+  background: #c76494;
+  color: white;
+}
+.gatsby-highlight pre[class="language-dotnet"]::before,
+.gatsby-highlight pre[class="language-cs"]::before,
+.gatsby-highlight pre[class="language-csharp"]::before,
+.gatsby-highlight pre[class="language-diff-dotnet"]::before,
+.gatsby-highlight pre[class="language-diff-cs"]::before,
+.gatsby-highlight pre[class="language-diff-csharp"]::before {
+  content: "C#";
+  background: #682b7b;
+  color: white;
+}
+.gatsby-highlight pre[class="language-markdown"]::before,
+.gatsby-highlight pre[class="language-diff-markdown"]::before {
+  content: "md";
+}
+.gatsby-highlight pre[class="language-mdx"]::before,
+.gatsby-highlight pre[class="language-diff-mdx"]::before {
+  content: "mdx";
+  background: #f9ac00;
+  color: white;
+}
+.gatsby-highlight pre[class="language-powershell"]::before,
+.gatsby-highlight pre[class="language-diff-powershell"]::before {
+  content: "powershell";
+  background: #205aab;
+  color: white;
+}
+.gatsby-highlight pre[class="language-shell"]::before,
+.gatsby-highlight pre[class="language-diff-shell"]::before {
+  content: "shell";
+}
+.gatsby-highlight pre[class="language-sh"]::before,
+.gatsby-highlight pre[class="language-diff-sh"]::before {
+  content: "sh";
+}
+.gatsby-highlight
+  pre[class="language-bash"]::before
+  .gatsby-highlight
+  pre[class="language-diff-bash"]::before {
+  content: "bash";
+}
+.gatsby-highlight pre[class="language-yaml"]::before,
+.gatsby-highlight pre[class="language-diff-yaml"]::before {
+  content: "yaml";
+  background: #fcc;
+}
+.gatsby-highlight pre[class="language-http"]::before,
+.gatsby-highlight pre[class="language-diff-http"]::before {
+  content: "yaml";
+  background: #a8d1ff;
+}
+.gatsby-highlight pre[class="language-git"]::before,
+.gatsby-highlight pre[class="language-diff-git"]::before {
+  content: "yaml";
+  background: #a8ffd6;
+}
+.gatsby-highlight pre[class="language-gherkin"]::before,
+.gatsby-highlight pre[class="language-diff-gherkin"]::before {
+  content: "gherkin";
+  background: #009940;
+  color: white;
+}
+.gatsby-highlight pre[class="language-json"]::before,
+.gatsby-highlight pre[class="language-json5"]::before,
+.gatsby-highlight pre[class="language-diff-json"]::before,
+.gatsby-highlight pre[class="language-diff-json5"]::before {
+  content: "json";
+  background: rgb(223, 190, 228);
+}
+.gatsby-highlight pre[class="language-diff"]::before {
+  content: "diff";
+  background: #e6ffed;
+}
+.gatsby-highlight pre[class="language-text"]::before,
+.gatsby-highlight pre[class="language-diff-text"]::before {
+  content: "text";
+  background: white;
+}
+.gatsby-highlight pre[class="language-log"]::before {
+  content: "log";
+  background: white;
+}
+
+/* PrismJS diff highlight */
+
+.gatsby-highlight
+  pre[class*="language-diff-"]
+  > code
+  .token.deleted:not(.prefix),
+pre > code[class*="language-diff-"] .token.deleted:not(.prefix) {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: inherit;
+  display: block;
+}
+
+pre[class*="language-diff-"] > code .token.inserted:not(.prefix),
+pre > code[class*="language-diff-"] .token.inserted:not(.prefix) {
+  background-color: rgba(0, 255, 128, 0.1);
+  color: inherit;
+  display: block;
+}
+
+/* PrismJS command-prompt */
+
+.command-line-prompt > span:before {
+  color: #888;
+  content: " ";
+  display: block;
+  padding-right: 0.8em;
+}
+
+/* Prompt for all users */
+.command-line-prompt > span[data-user]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] $";
+}
+
+/* Prompt for root */
+.command-line-prompt > span[data-user="root"]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] #";
+}
+
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
 }
 
 /* Media queries */
