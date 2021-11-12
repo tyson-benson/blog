@@ -54,11 +54,12 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
+              inlineCodeMarker: ">",
               additionalLanguages: [
                 "powershell",
                 "csharp",
-                "docker",
                 "dotnet",
+                "docker",
                 "bicep",
                 "regex",
                 "gherkin",
@@ -66,7 +67,6 @@ module.exports = {
                 "http",
                 "typescript",
                 "scss",
-                "mermaid",
                 "yaml",
               ],
             },
