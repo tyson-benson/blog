@@ -1,7 +1,7 @@
 ---
 title: Azure Static Web Apps - First impressions
 date: "2021-11-10T20:00:00.000Z"
-description: "This blog is a static web app, how about that?"
+description: "Spoiler - I'm a big fan of what Azure has done with Static Web Apps"
 ---
 
 The team at Azure appear to have worked hard on streamlining the experience of getting up and started with SPA style web apps with [Static Web Apps](https://azure.microsoft.com/en-au/services/app-service/static/) (SWA). It's the convergence of a handful of cloud native technologies that go hand in hand to building modern applications, including:
