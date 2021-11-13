@@ -393,15 +393,9 @@ This essentially adds a _composite_ Run & Debug configuration that runs the gats
 
 I also followed Anthony Chu's example to hide the individual launch configurations from the VS code UI, for simplicity's sake.
 
-## Suggestions to the Azure team
-
-There are so many productivity improvements across the board with Static Web Apps for developers. If I could wave a magic want to make one thing better, it would be to further improve the developer experience by having the VS Code launch.json and tasks.json files updated automatically (probably by the SWA VS Code extension). Similar to how the [Azure Functions VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) [helps to initialise the workspace](https://github.com/Microsoft/vscode-azurefunctions/wiki/Project-Structure), or manually with a `Ctrl+Shift+P` command.
-
-![Init function app for VS Code](./vs-code-init-fn-app.png)
-
 ## Dev Dependencies
 
-If you're new to some of these technologies, this is a reasonably complete list of things that I used in the process in one convenient list.
+If you're new to some of these technologies, for your convenience I've compiled this reasonably complete list of things that I used in the process.
 
 - A [GitHub](https://github.com/) Account
 - An [Azure](https://azure.microsoft.com/) Account
@@ -424,6 +418,12 @@ If you're new to some of these technologies, this is a reasonably complete list 
   npm i -g next
   # etc
   ```
+
+## Suggestions to the Azure team
+
+There are so many productivity improvements across the board with Static Web Apps for developers. If I could wave a magic want to make one thing better, it would be to further improve the developer experience by having the VS Code launch.json and tasks.json files updated automatically (probably by the SWA VS Code extension). Similar to how the [Azure Functions VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) [helps to initialise the workspace](https://github.com/Microsoft/vscode-azurefunctions/wiki/Project-Structure), or manually with a `Ctrl+Shift+P` command.
+
+![Init function app for VS Code](./vs-code-init-fn-app.png)
 
 ## Closing thoughts
 
