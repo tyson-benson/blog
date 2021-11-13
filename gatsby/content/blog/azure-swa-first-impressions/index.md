@@ -187,7 +187,7 @@ steps:
         output_location: "public" # Built app content directory - optional
 ```
 
-If you're working in a team and you use pull requests, the other workflow job will come into play when you close a pull request. I haven't been able to review the code, so I'm guessing that this task's main purpose is to delete the staging deployments created for the pull request.
+The other job in the workflow works hand in hand with the first job, but only when you're using Pull Requests. Each pull request will trigger a staging environment to be created so that you can preview your changes before they're pushed to the live site. Microsoft has a guide for [pull requests and pre-production environments](https://docs.microsoft.com/en-us/azure/static-web-apps/review-publish-pull-requests).
 
 ```yaml
 close_pull_request_job:
@@ -203,11 +203,13 @@ close_pull_request_job:
         action: "close"
 ```
 
-There might be some issues with this process, because after a few deployments, the build and deploy task started failing because I had reached my staging slot limit. I after manually deleting the staging slots did the build start succeeding again. When I ran into this situation, the error message was quite helpful:
+There might be some issues with this process, because after a few deployments, the build and deploy task started failing because I had reached my staging slot limit. This situation could easily be triggered by dependabot creating a new pull request for dependencies in your package.json. Frameworks like Angular contain several packages that all get updated simultaneously.
+
+You can resolve the issue either by closing and merging your active pull requests, or if the staging slots are just hanging around inexplicably (like mine were) the issue can be resolved by manually deleting the staging slots. After that point the build should start succeeding again. When I ran into this situation, the error message was quite helpful:
 
 ```log
 ERROR: The content server has rejected the request with: BadRequest
-Reason: This Static Web App already has the maximum number of staging environments (10). Please remove one and try again.
+Reason: This Static Web App already has the maximum number of staging environments (3). Please remove one and try again.
 ```
 
 Of course, there's a lot more detail in the Microsoft Docs for [SWA build configuration](https://docs.microsoft.com/en-au/azure/static-web-apps/build-configuration?tabs=github-actions). Including some info that will be helpful for adapting the workflow when the app is part of a [monorepo](https://docs.microsoft.com/en-au/azure/static-web-apps/build-configuration?tabs=github-actions#monorepo-support).
